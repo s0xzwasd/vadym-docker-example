@@ -1,3 +1,3 @@
-module "github.com/s0xzwasd/go-docker-environment"
+module github.com/s0xzwasd/go-docker-environment
 
-go 1.16
+go 1.22

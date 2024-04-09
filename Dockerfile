@@ -1,15 +1,9 @@
-FROM golang:1.16.3-buster AS build-env
+FROM golang:1.22.2 AS build-env
 
 ADD . /dockerdev
 WORKDIR /dockerdev
+EXPOSE 8000:8000
 
 RUN go build -o /server
-
-FROM debian:buster
-
-EXPOSE 8000
-
-WORKDIR /
-COPY --from=build-env /server /
 
 CMD ["/server"]

@@ -15,9 +15,10 @@ func main() {
 
 	log.Println("Starting server...")
 
-	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+	http.HandleFunc("/hi", func(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusOK)
 		_, _ = fmt.Fprintln(w, `Hello, visitor!`)
+		log.Println("User logged in")
 	})
 
 	log.Fatal(http.ListenAndServe(addr, nil))
